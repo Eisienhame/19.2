@@ -17,7 +17,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'продукт'
         verbose_name_plural = 'студенты'
-        ordering = ('name')
+        ordering = ('name',)
 
 class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Наименование')
@@ -29,4 +29,4 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'категория'
         verbose_name_plural = 'категории'
-        ordering = ('name')
+        ordering = ('name',)

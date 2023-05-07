@@ -22,4 +22,4 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('catalog.urls',namespace='catalog')),
-] + static(settings.MEDIA_URL, settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
