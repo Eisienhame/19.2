@@ -12,7 +12,7 @@ class Product(models.Model):
     Last_modified_date = models.DateTimeField(verbose_name='Дата последнего изменения')
 
     def __str__(self):
-        return f'{self.name} \n {self.description} \n категория: {self.category} \n цена: {self.price} \n дата создания: {self.date_of_creation}'
+        return f'{self.name}'
 
     class Meta:
         verbose_name = 'продукт'
@@ -25,7 +25,7 @@ class Category(models.Model):
 
 
     def __str__(self):
-        return f'{self.name} \n {self.description}'
+        return f'{self.name}'
 
     class Meta:
         verbose_name = 'категория'
