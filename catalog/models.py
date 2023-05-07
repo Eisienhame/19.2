@@ -23,6 +23,7 @@ class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Наименование')
     description = models.CharField(max_length=400, verbose_name='Описание')
 
+
     def __str__(self):
         return f'{self.name} \n {self.description}'
 
