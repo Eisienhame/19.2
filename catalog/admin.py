@@ -12,4 +12,4 @@ class CategoryAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'price', 'category')
     search_fields = ('name', 'description')
-    list_filter = ('category')
+    list_filter = ('category',)
