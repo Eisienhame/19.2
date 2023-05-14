@@ -19,3 +19,4 @@ def product_card(request):
         'product_card' : Product.objects.all()
     }
     return render(request, 'catalog/product_card.html', context)
+
