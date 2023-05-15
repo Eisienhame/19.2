@@ -1,13 +1,5 @@
 {% load mediapath %}
 <div class="card shadow-sm">
-    <svg class="bd-placeholder-img card-img-top" width="225" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
-         aria-label="Placeholder: Продукт" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <title>
-        Placeholder</title>
-        <rect width="100%" height="100%" fill="#55595c"/>
-        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Продукт</text>
-    </svg>
-
     <div class="card-body">
         <img src="{% mediapath object.preview_image %}" alt="Картинка"  width="200" height="200"/>
         <h1>{{ object.name }}</h1>
