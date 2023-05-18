@@ -1,7 +1,7 @@
 {% load mediapath %}
 <div class="card shadow-sm">
     <div class="card-body">
-        <img src="{% mediapath object.preview_image %}" alt="Картинка"  width="200" height="200"/>
+        <img src="{% mediapath product.preview_image %}" alt="Картинка"  width="200" height="200"/>
         <h1>{{ product.name }}</h1>
         <p class="card-text">{{ product.category }}</p>
         <p class="card-text">{{ product.description|slice:"100" }}</p>
