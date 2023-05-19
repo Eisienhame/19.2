@@ -1,5 +1,7 @@
 from django.core.management import BaseCommand
+from django.utils import timezone
 from catalog.models import Category, Product
+import datetime
 import psycopg2, os
 
 class Command(BaseCommand):
@@ -27,9 +29,9 @@ class Command(BaseCommand):
         Category.objects.bulk_create(category_objects)
 
         product_list = [
-            {"name": "mango", "description": "fruits", "preview_image": "products/freshmango.jpg", "category": "fruits", "price": "124","date_of_creation": "2023-05-14","Last_modified_date": "2023-05-14"},
-            {"name": "banan", "description": "fruits", "preview_image": "products/01banan.jpg", "category": "fruits", "price": "32","date_of_creation": "2023-05-14","Last_modified_date": "2023-05-14"},
-            {"name": "Яблоко", "description": "fruits", "preview_image": "products/03яблоко.jpg", "category": "fruits", "price": "14","date_of_creation": "2023-05-14","Last_modified_date": "2023-05-14"}
+            {"name": "mango", "description": "fruits", "preview_image": "products/freshmango.jpg", "category": "fruits", "price": "124","date_of_creation": f"{datetime.datetime.now()}","Last_modified_date": f"{datetime.datetime.now()}"},
+            {"name": "banan", "description": "fruits", "preview_image": "products/01banan.jpg", "category": "fruits", "price": "32","date_of_creation": f"{datetime.datetime.now()}","Last_modified_date": f"{datetime.datetime.now()}"},
+            {"name": "Яблоко", "description": "fruits", "preview_image": "products/03яблоко.jpg", "category": "fruits", "price": "14","date_of_creation": f"{datetime.datetime.now()}","Last_modified_date": f"{datetime.datetime.now()}"}
         ]
         product_objects = []
         for i in product_list:
