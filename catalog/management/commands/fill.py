@@ -1,5 +1,5 @@
 from django.core.management import BaseCommand
-from catalog.models import Category, Products
+from catalog.models import Category, Product
 import psycopg2, os
 
 class Command(BaseCommand):
@@ -11,6 +11,7 @@ class Command(BaseCommand):
                 password=os.getenv('bd_pass')) as conn:
             with conn.cursor() as cur:
                 cur.execute('truncate table catalog_product, catalog_category')
+                #cur.execute('ALTER SEQUENCE catalog_product_id_seq RESTART WITH 1')
 
         categories_list = [
             {"name": "fruits", "description": "Фрукты"},
@@ -26,12 +27,12 @@ class Command(BaseCommand):
         Category.objects.bulk_create(category_objects)
 
         product_list = [
-            {"name": "mango", "description": "fruits", "preview_image": "products/freshmango.jpg", "category": "fruits", "price": 124,"date_of_creation": "2023-05-14T22:18:42Z","Last_modified_date": "2023-05-14T22:18:42Z"},
-            {"name": "banan", "description": "fruits", "preview_image": "products/01banan.jpg", "category": "fruits", "price": 32,"date_of_creation": "2023-05-14T23:18:42Z","Last_modified_date": "2023-05-14T23:18:42Z"},
-            {"name": "Яблоко", "description": "fruits", "preview_image": "products/03яблоко.jpg", "category": "fruits", "price": 14,"date_of_creation": "2023-05-14T24:18:42Z","Last_modified_date": "2023-05-14T24:18:42Z"}
+            {"name": "mango", "description": "fruits", "preview_image": "products/freshmango.jpg", "category": "fruits", "price": "124","date_of_creation": "2023-05-14","Last_modified_date": "2023-05-14"},
+            {"name": "banan", "description": "fruits", "preview_image": "products/01banan.jpg", "category": "fruits", "price": "32","date_of_creation": "2023-05-14","Last_modified_date": "2023-05-14"},
+            {"name": "Яблоко", "description": "fruits", "preview_image": "products/03яблоко.jpg", "category": "fruits", "price": "14","date_of_creation": "2023-05-14","Last_modified_date": "2023-05-14"}
         ]
         product_objects = []
-        for i in categories_list:
-            product_objects.append(Category(**i))
+        for i in product_list:
+            product_objects.append(Product(**i))
 
-        Products.objects.bulk_create(product_objects)
+        Product.objects.bulk_create(product_objects)

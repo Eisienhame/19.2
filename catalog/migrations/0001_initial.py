@@ -33,8 +33,8 @@ class Migration(migrations.Migration):
                 ('preview_image', models.ImageField(blank=True, null=True, upload_to='products/', verbose_name='Изображение (превью)')),
                 ('category', models.CharField(max_length=150, verbose_name='Категория')),
                 ('price', models.IntegerField(verbose_name='Цена за покупку')),
-                ('date_of_creation', models.DateTimeField(verbose_name='Дата создания')),
-                ('Last_modified_date', models.DateTimeField(verbose_name='Дата последнего изменения')),
+                ('date_of_creation', models.DateTimeField(verbose_name='Дата создания', blank=True, null=True)),
+                ('Last_modified_date', models.DateTimeField(verbose_name='Дата последнего изменения', blank=True, null=True)),
             ],
             options={
                 'verbose_name': 'продукт',
